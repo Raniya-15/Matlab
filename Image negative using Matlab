@@ -1,0 +1,10 @@
+original=imread("girl.jpg");    
+subplot(1, 2, 1), 
+imshow(original); 
+title("Original image"); 
+  
+L = 2 ^ 8;                         
+negative = (L - 1) - original; 
+subplot(1, 2, 2), 
+imshow(negative); 
+title("Negative Image") 
