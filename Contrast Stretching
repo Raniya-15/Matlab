@@ -1,0 +1,14 @@
+I = imread('girl.jpg'); 
+if size(I, 3) == 3
+    I = rgb2gray(I); 
+end
+I = double(I);
+I_min = min(I(:));
+I_max = max(I(:));
+desired_min = 0;
+desired_max = 255;
+I_stretched = (I - I_min) * ((desired_max - desired_min) / (I_max - I_min)) + desired_min;
+I_stretched = uint8(I_stretched);
+figure;
+subplot(1, 2, 1), imshow(I, []), title('Original Image');
+subplot(1, 2, 2), imshow(I_stretched, []), title('Stretched Image');
